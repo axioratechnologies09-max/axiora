@@ -1,23 +1,24 @@
+/* Extra bottom spacing for main content so it's not hidden under dock */
 @media (max-width: 860px) {
   main {
-    padding-bottom: 90px;
+    padding-bottom: calc(90px + env(safe-area-inset-bottom, 0px));
   }
 }
 
-/* ── Wrapper: fixed to bottom, allows FAB to overflow upward ── */
+/* ── Wrapper: fixed to bottom ── */
 .mobile-tab-bar-wrapper {
   position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
+  /* Total height = bar (70px) + phone safe area (e.g. 34px on iPhone) */
   height: calc(70px + env(safe-area-inset-bottom, 0px));
-  padding-bottom: env(safe-area-inset-bottom, 0px);
   z-index: 2000;
   pointer-events: none;
-  overflow: visible; /* lets the FAB sit above the bar */
+  overflow: visible;
 }
 
-/* ── Dark bar background with curved notch cutout ── */
+/* ── Solid dark bar background ── */
 .mobile-tab-bar-bg {
   position: absolute;
   bottom: 0;
@@ -30,16 +31,13 @@
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   box-shadow: 0 -6px 40px rgba(0, 0, 0, 0.9);
   pointer-events: auto;
-
-  /* Circular cutout at center-top for the FAB */
-  -webkit-mask-image: radial-gradient(circle 34px at 50% 0%, transparent 34px, black 35px);
-  mask-image: radial-gradient(circle 34px at 50% 0%, transparent 34px, black 35px);
 }
 
-/* ── Icon row ── */
+/* ── Icon row — sits above the safe area ── */
 .mobile-tab-bar-content {
   position: absolute;
-  bottom: 0;
+  /* Push content up above safe area so icons are always visible */
+  bottom: env(safe-area-inset-bottom, 0px);
   left: 0;
   right: 0;
   height: 70px;
@@ -98,16 +96,11 @@
   letter-spacing: 0.3px;
 }
 
-/* ── FAB: direct child of wrapper, positioned by top offset ── */
-/* 
-  Wrapper is 70px tall, bottom: 0.
-  FAB height: 56px. We want FAB center at the TOP edge of the wrapper (y=0).
-  So: top = 0 - 56/2 = -28px
-  This makes the FAB straddle the cutout exactly.
-*/
+/* ── FAB: floats above the bar center ── */
 .center-fab {
   position: absolute;
-  top: -28px;
+  /* Sit above the icon row top edge */
+  bottom: calc(env(safe-area-inset-bottom, 0px) + 42px);
   left: 50%;
   transform: translateX(-50%);
   width: 56px;
