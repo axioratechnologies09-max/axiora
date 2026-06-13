@@ -36,11 +36,6 @@ function CarouselItem({ item, index, itemWidth, round, trackItemOffset, x, trans
           <p className="carousel-item-description">{item.description}</p>
           {item.content && <div className="carousel-item-custom">{item.content}</div>}
         </div>
-        {item.image && (
-          <div className="carousel-item-image">
-            <img src={item.image} alt={item.title} />
-          </div>
-        )}
       </div>
     </motion.div>
   );

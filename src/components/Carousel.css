@@ -22,7 +22,8 @@
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: calc(var(--outer-r) - var(--p-distance));
   background-color: #120F17; /* match Axiora dark theme */
-  overflow: hidden;
+  overflow-y: auto;
+  overflow-x: hidden;
   cursor: grab;
 }
 
