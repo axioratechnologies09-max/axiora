@@ -1,15 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { FaCheckCircle, FaRocket, FaShieldAlt, FaGlobe, FaChartLine } from 'react-icons/fa';
-import ScrollStack, { ScrollStackItem } from './ScrollStack';
+import Carousel from './Carousel';
 import './About.css';
 
 const About = () => {
   const [isMobile, setIsMobile] = useState(false);
+  const [carouselWidth, setCarouselWidth] = useState(300);
 
   useEffect(() => {
     const checkMobile = () => {
-      setIsMobile(window.innerWidth <= 1024);
+      const isMob = window.innerWidth <= 1024;
+      setIsMobile(isMob);
+      if (isMob) {
+        // Leave some padding on the sides
+        setCarouselWidth(Math.min(window.innerWidth - 40, 400));
+      }
     };
     checkMobile();
     window.addEventListener('resize', checkMobile);
@@ -18,8 +24,9 @@ const About = () => {
 
   const slides = [
     {
+      id: 1,
       title: "Who We Are",
-      text: "Axiora Technologies builds premium digital products with a focus on speed, scalability, and exceptional user experience.",
+      description: "Axiora Technologies builds premium digital products with a focus on speed, scalability, and exceptional user experience.",
       image: "/portfolio/fintech_landing_1781258535982.png",
       content: (
         <>
@@ -38,8 +45,9 @@ const About = () => {
       )
     },
     {
+      id: 2,
       title: "What We Build",
-      text: "Custom websites, SaaS platforms, business automation tools, enterprise dashboards, and e-commerce systems.",
+      description: "Custom websites, SaaS platforms, business automation tools, enterprise dashboards, and e-commerce systems.",
       image: "/portfolio/ecommerce_dashboard_1781258560166.png",
       content: (
         <ul className="slide-list">
@@ -51,8 +59,9 @@ const About = () => {
       )
     },
     {
+      id: 3,
       title: "Why Choose Us",
-      text: "Performance-focused architecture, modern technology stacks, and long-term business growth strategies.",
+      description: "Performance-focused architecture, modern technology stacks, and long-term business growth strategies.",
       image: "/portfolio/saas_analytics_1781258522852.png",
       content: (
         <div className="slide-stats-grid">
@@ -72,8 +81,9 @@ const About = () => {
       )
     },
     {
+      id: 4,
       title: "Future Vision",
-      text: "Helping brands dominate digitally through innovative software engineering.",
+      description: "Helping brands dominate digitally through innovative software engineering.",
       image: "/portfolio/ai_saas_1781258548402.png",
       content: (
         <>
@@ -102,34 +112,17 @@ const About = () => {
           <div className="title-line mx-auto"></div>
         </div>
 
-        <div className={isMobile ? "about-scroll-col-full" : "about-grid-desktop"}>
+        <div className={isMobile ? "about-carousel-container" : "about-grid-desktop"}>
           {isMobile ? (
-            <ScrollStack
-              useWindowScroll={true}
-              itemDistance={80}
-              baseScale={0.9}
-              itemScale={0.03}
-              itemStackDistance={30}
-              stackPosition="25%"
-              scaleEndPosition="15%"
-            >
-              {slides.map((slide, index) => (
-                <ScrollStackItem key={index}>
-                  <div className="about-slide">
-                    <div className="about-slide-layout">
-                      <div className="about-slide-content">
-                        <h3 className="slide-title">{slide.title}</h3>
-                        <p className="slide-text">{slide.text}</p>
-                        {slide.content && slide.content}
-                      </div>
-                      <div className="about-slide-image">
-                        <img src={slide.image} alt={slide.title} />
-                      </div>
-                    </div>
-                  </div>
-                </ScrollStackItem>
-              ))}
-            </ScrollStack>
+            <div style={{ display: 'flex', justifyContent: 'center' }}>
+              <Carousel
+                items={slides}
+                baseWidth={carouselWidth}
+                autoplay={false}
+                pauseOnHover={true}
+                loop={true}
+              />
+            </div>
           ) : (
             slides.map((slide, index) => (
               <motion.div 
@@ -143,7 +136,7 @@ const About = () => {
                 <div className="about-slide-layout">
                   <div className="about-slide-content">
                     <h3 className="slide-title">{slide.title}</h3>
-                    <p className="slide-text">{slide.text}</p>
+                    <p className="slide-text">{slide.description}</p>
                     {slide.content && slide.content}
                   </div>
                   <div className="about-slide-image">
