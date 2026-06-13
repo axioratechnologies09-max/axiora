@@ -28,6 +28,7 @@
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
   border: 1px solid rgba(255, 255, 255, 0.08);
   transition: all 0.3s ease;
+  overflow: hidden;
 }
 
 .navbar-container.scrolled .navbar-pill {
@@ -114,20 +115,21 @@
 }
 
 @media (max-width: 500px) {
+  /* Apply compact layout from the very first render, not just after scroll */
   .navbar-container {
     padding: 1rem 0.5rem;
   }
-  .navbar-container.scrolled,
-  .navbar-pill {
-    padding: 0.5rem 0.75rem;
+  .navbar-container.scrolled {
+    padding: 0.5rem 0.5rem;
   }
+  /* Override the base 2rem left-padding immediately on small screens */
   .navbar-pill {
-    overflow: hidden;
+    padding: 0.5rem 0.75rem !important;
     gap: 0.5rem;
   }
   .navbar-logo {
     font-size: 1rem;
-    padding-left: 0.25rem;
+    padding-left: 0;
     min-width: 0;
     flex-shrink: 1;
     overflow: hidden;
