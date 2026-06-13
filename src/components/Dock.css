@@ -138,3 +138,10 @@
     display: none !important;
   }
 }
+
+/* Hide on very short viewports (landscape phone) - dock would cover all content */
+@media (max-height: 500px) {
+  .mobile-tab-bar-wrapper {
+    display: none !important;
+  }
+}

@@ -144,7 +144,7 @@
     padding-left: 0;
     min-width: 0;
     flex-shrink: 1;
-    max-width: calc(100% - 150px); /* always leave room for CTA button */
+    max-width: calc(100% - 140px); /* leave room for CTA button */
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;

@@ -38,6 +38,9 @@
 html {
   width: 100%;
   max-width: 100%;
+  /* Prevent horizontal overflow and touch-drift on mobile */
+  overflow-x: clip;
+  touch-action: pan-y;
   font-family: var(--font-sans);
   color: var(--text);
   background-color: var(--bg);
