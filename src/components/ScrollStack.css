@@ -43,7 +43,8 @@
   -webkit-transform: translateZ(0);
   transform: translateZ(0);
   position: relative;
-  transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1), filter 0.2s ease;
+  /* No transition on transform/filter because they are updated via JS every frame. 
+     Having a CSS transition here fights with Lenis requestAnimationFrame and causes bouncing/stuttering */
 }
 
 .scroll-stack-end {
