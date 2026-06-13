@@ -55,7 +55,7 @@ const Hero = () => {
               Premium web development, scalable software solutions, and full-stack engineering for ambitious brands.
             </p>
             <div className="hero-actions">
-              <button className="btn btn-primary" onClick={() => handleScrollTo('contact')}>Book Consultation</button>
+              <button className="btn btn-primary" onClick={() => handleScrollTo('contact')}>Start a Project</button>
               <button className="btn btn-secondary" onClick={() => handleScrollTo('portfolio')}>View Work</button>
             </div>
           </motion.div>
