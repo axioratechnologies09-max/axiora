@@ -117,18 +117,27 @@
   .navbar-container {
     padding: 1rem 0.5rem;
   }
-  .navbar-container.scrolled {
-    padding: 0.5rem;
+  .navbar-container.scrolled,
+  .navbar-pill {
+    padding: 0.5rem 0.75rem;
   }
   .navbar-pill {
-    padding: 0.5rem;
+    overflow: hidden;
+    gap: 0.5rem;
   }
   .navbar-logo {
-    font-size: 1.1rem;
-    padding-left: 0.5rem;
+    font-size: 1rem;
+    padding-left: 0.25rem;
+    min-width: 0;
+    flex-shrink: 1;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
   }
   .btn-sm {
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 0.875rem;
     font-size: 0.8rem;
+    white-space: nowrap;
+    flex-shrink: 0;
   }
 }
