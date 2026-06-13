@@ -18,21 +18,24 @@
   overflow: visible;
 }
 
-/* ── Solid dark bar background ── */
+/* ── Glass bar background — always distinct from page behind it ── */
 .mobile-tab-bar-bg {
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #120F17;
+  /* Semi-transparent dark glass — visible on dark AND light backgrounds */
+  background: rgba(14, 11, 20, 0.92);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
   border-top-left-radius: 18px;
   border-top-right-radius: 18px;
-  /* Gold-tinted top border + strong shadow = always visible on any background */
-  border-top: 1.5px solid rgba(212, 175, 55, 0.35);
+  /* Prominent gold line + strong dark shadow = always separates from page */
+  border-top: 2px solid rgba(212, 175, 55, 0.55);
   box-shadow:
-    0 -6px 40px rgba(0, 0, 0, 0.95),
-    0 -1px 0 rgba(212, 175, 55, 0.2);
+    0 -8px 32px rgba(0, 0, 0, 1),
+    0 -2px 8px rgba(212, 175, 55, 0.15);
   pointer-events: auto;
 }
 
