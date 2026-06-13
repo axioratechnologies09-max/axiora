@@ -1,16 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import Lenis from 'lenis';
+import { Outlet } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import Lightfall from './components/Lightfall';
-import Hero from './components/Hero';
-import About from './components/About';
-import Services from './components/Services';
-import Process from './components/Process';
-import TechStack from './components/TechStack';
-import Portfolio from './components/Portfolio';
-import WhyChooseUs from './components/WhyChooseUs';
-import Testimonials from './components/Testimonials';
-import Contact from './components/Contact';
 import Footer from './components/Footer';
 import Dock from './components/Dock';
 import { FiHome, FiInfo, FiLayers, FiBriefcase, FiMail } from 'react-icons/fi';
@@ -49,18 +40,21 @@ function App() {
 
     return () => {
       if (rafRef.current) cancelAnimationFrame(rafRef.current);
-      lenis.destroy();
+      if (lenisRef.current) lenisRef.current.destroy();
       window.lenis = null;
       lenisRef.current = null;
     };
   }, []);
 
   const handleScrollTo = (id) => {
+    // If not on homepage, this would need to navigate first, but for now we keep it simple
     const element = document.getElementById(id);
     if (element && window.lenis) {
       window.lenis.scrollTo(element, { offset: -80, duration: 1.4 });
     } else if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      window.location.href = `/#${id}`;
     }
   };
 
@@ -76,15 +70,7 @@ function App() {
     <>
       <Navbar />
       <main>
-        <Hero />
-        <About />
-        <Services />
-        <Process />
-        <TechStack />
-        <Portfolio />
-        <WhyChooseUs />
-        <Testimonials />
-        <Contact />
+        <Outlet />
       </main>
       <Footer />
       <Dock 

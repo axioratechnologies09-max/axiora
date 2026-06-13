@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Footer.css';
 import { FiMail, FiPhone, FiMapPin } from 'react-icons/fi';
 
@@ -8,7 +9,7 @@ const Footer = () => {
       <div className="container">
         <div className="footer-grid">
           <div className="footer-brand">
-            <h2 className="footer-logo">Axiora Technologies</h2>
+            <p className="footer-logo" style={{ fontFamily: 'var(--font-heading)', fontSize: '2rem', fontWeight: '700', marginBottom: '1rem' }}>Axiora Technologies</p>
             <p className="footer-desc">
               High-performance digital solutions for modern brands. We build scalable websites, SaaS platforms, and enterprise applications.
             </p>
@@ -19,21 +20,22 @@ const Footer = () => {
             <div className="link-column">
               <h3>Quick Links</h3>
               <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#portfolio">Portfolio</a></li>
-                <li><a href="#process">Process</a></li>
+                <li><Link to="/">Home</Link></li>
+                <li><Link to="/#about">About</Link></li>
+                <li><Link to="/#portfolio">Portfolio</Link></li>
+                <li><Link to="/#process">Process</Link></li>
+                <li><Link to="/blog">Blog</Link></li>
               </ul>
             </div>
             
             <div className="link-column">
               <h3>Services</h3>
               <ul>
-                <li><a href="#">Domain & Hosting</a></li>
-                <li><a href="#">Web Design & Dev</a></li>
-                <li><a href="#">E-Commerce</a></li>
-                <li><a href="#">Software Dev</a></li>
-                <li><a href="#">SEO & CMS</a></li>
+                <li><Link to="/ai-development-services">AI Development</Link></li>
+                <li><Link to="/custom-software-development">Custom Software</Link></li>
+                <li><Link to="/saas-development-services">SaaS Development</Link></li>
+                <li><Link to="/cloud-devops-services">Cloud & DevOps</Link></li>
+                <li><Link to="/web-development-services">Web Development</Link></li>
               </ul>
             </div>
 
@@ -46,7 +48,7 @@ const Footer = () => {
                 </li>
                 <li>
                   <FiPhone className="contact-icon text-gold" />
-                  <span>+1 (555) 123-4567</span>
+                  <span>+91 9249047267</span>
                 </li>
                 <li>
                   <FiMapPin className="contact-icon text-gold" />

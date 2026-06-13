@@ -37,14 +37,21 @@ const Navbar = () => {
           />
         </div>
         
-        <div className="apple-glass-nav">
+        <nav aria-label="Main navigation" className="apple-glass-nav">
           {NAV_LINKS.map((item) => (
             <a
               key={item.name}
-              href={item.href}
+              href={`/${item.href}`}
               onClick={(e) => { 
                 e.preventDefault(); 
                 setActive(item.name);
+                
+                // If we are not on the homepage, redirect
+                if (window.location.pathname !== '/') {
+                  window.location.href = `/${item.href}`;
+                  return;
+                }
+
                 const section = document.querySelector(item.href);
                 if(section && window.lenis) {
                   window.lenis.scrollTo(section, { offset: -80, duration: 1.4 });
@@ -53,6 +60,7 @@ const Navbar = () => {
                 }
               }}
               className={`nav-item ${active === item.name ? 'active' : ''}`}
+              aria-current={active === item.name ? 'page' : undefined}
             >
               {active === item.name && (
                 <motion.div
@@ -64,7 +72,7 @@ const Navbar = () => {
               <span className="nav-item-text">{item.name}</span>
             </a>
           ))}
-        </div>
+        </nav>
 
         <div className="navbar-action">
           <button className="btn btn-primary btn-sm">Book Consultation</button>

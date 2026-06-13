@@ -2,8 +2,9 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { FiCode, FiTerminal, FiDatabase, FiArrowRight } from 'react-icons/fi';
 import ShinyText from './ShinyText';
-import Lightfall from './Lightfall';
 import './Hero.css';
+
+const Lightfall = React.lazy(() => import('./Lightfall'));
 
 const Hero = () => {
   const handleScrollTo = (id) => {
@@ -18,22 +19,24 @@ const Hero = () => {
   return (
     <section id="home" className="hero-section">
       <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, zIndex: 0, pointerEvents: 'none', overflow: 'hidden' }}>
-        <Lightfall
-          dpr={1}
-          colors={['#000000', '#222222', '#444444']}
-          backgroundColor="#FAFAFA"
-          speed={0.5}
-          streakCount={3}
-          streakWidth={1}
-          streakLength={1.5}
-          glow={0.5}
-          density={0.7}
-          twinkle={1}
-          zoom={2}
-          backgroundGlow={0}
-          opacity={0.3}
-          mouseInteraction={false}
-        />
+        <React.Suspense fallback={null}>
+          <Lightfall
+            dpr={1}
+            colors={['#000000', '#222222', '#444444']}
+            backgroundColor="#FAFAFA"
+            speed={0.5}
+            streakCount={3}
+            streakWidth={1}
+            streakLength={1.5}
+            glow={0.5}
+            density={0.7}
+            twinkle={1}
+            zoom={2}
+            backgroundGlow={0}
+            opacity={0.3}
+            mouseInteraction={false}
+          />
+        </React.Suspense>
       </div>
       <div className="grid-pattern" style={{ zIndex: 1 }}></div>
       
@@ -45,14 +48,13 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <h1 className="hero-title">
-              Building <br/>
-              <ShinyText text="Next Generation" color="var(--gold-dark)" shineColor="#FFFFFF" speed={3} />
+            <h1 className="hero-title" style={{ fontSize: '4rem' }}>
+              <ShinyText text="AI Development Company" color="var(--gold-dark)" shineColor="#FFFFFF" speed={3} />
               <br/>
-              Digital Experiences
+              & Software Engineering
             </h1>
             <p className="hero-subtitle">
-              Premium web development, scalable software solutions, and full-stack engineering for ambitious brands.
+              We are a premium AI development company and software engineering agency. We build next-generation scalable SaaS platforms, intelligent automation systems, and enterprise cloud solutions for ambitious brands.
             </p>
             <div className="hero-actions">
               <button className="btn btn-primary" onClick={() => handleScrollTo('contact')}>Start a Project</button>

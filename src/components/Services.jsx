@@ -1,53 +1,51 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FiGlobe, FiLayout, FiShoppingCart, FiCode, FiSearch, FiSmartphone, FiGrid, FiPenTool, FiShare2 } from 'react-icons/fi';
+import { Link } from 'react-router-dom';
+import { FiGlobe, FiLayout, FiShoppingCart, FiCode, FiSearch, FiSmartphone, FiGrid, FiPenTool, FiShare2, FiArrowRight } from 'react-icons/fi';
 import './Services.css';
 
 const servicesData = [
   {
-    icon: <FiGlobe />,
-    title: 'Domain & Hosting',
-    desc: 'Reliable and secure domain registration and high-performance hosting services.'
+    icon: <FiCode />,
+    title: 'AI Development',
+    desc: 'Custom machine learning models, generative AI tools, and intelligent automation systems.',
+    path: '/ai-development-services'
   },
   {
     icon: <FiLayout />,
-    title: 'Web Design & Development',
-    desc: 'Custom, responsive websites designed to engage users and drive conversions.'
-  },
-  {
-    icon: <FiShoppingCart />,
-    title: 'E-Commerce Website',
-    desc: 'Robust online stores with secure payment gateways and intuitive shopping experiences.'
-  },
-  {
-    icon: <FiCode />,
-    title: 'Software Development',
-    desc: 'Scalable and custom software solutions tailored to your unique business requirements.'
-  },
-  {
-    icon: <FiSearch />,
-    title: 'SEO & CMS',
-    desc: 'Search engine optimization and easy-to-use content management systems for better visibility.'
-  },
-  {
-    icon: <FiSmartphone />,
-    title: 'Digital Business Card',
-    desc: 'Modern, shareable digital business cards to network smarter and faster.'
+    title: 'Custom Software',
+    desc: 'Scalable custom software development services for enterprises and startups.',
+    path: '/custom-software-development'
   },
   {
     icon: <FiGrid />,
-    title: 'Digital Menu Card',
-    desc: 'Interactive and contactless digital menus perfect for restaurants and cafes.'
+    title: 'SaaS Development',
+    desc: 'B2B SaaS platforms with multi-tenant architectures and secure payments.',
+    path: '/saas-development-services'
   },
   {
-    icon: <FiPenTool />,
-    title: 'Logo & Branding',
-    desc: 'Memorable logo designs and cohesive branding strategies to stand out in the market.'
+    icon: <FiGlobe />,
+    title: 'Cloud & DevOps',
+    desc: 'Secure and scalable cloud engineering services, AWS deployment, and CI/CD pipelines.',
+    path: '/cloud-devops-services'
+  },
+  {
+    icon: <FiSmartphone />,
+    title: 'Mobile App Development',
+    desc: 'Native and cross-platform mobile experiences for iOS and Android devices.',
+    path: '/mobile-app-development'
+  },
+  {
+    icon: <FiSearch />,
+    title: 'Web Development',
+    desc: 'High-performance, responsive, and SEO-optimized websites and web applications.',
+    path: '/web-development-services'
   },
   {
     icon: <FiShare2 />,
-    title: 'Social Media Marketing',
-    desc: 'Data-driven campaigns to grow your audience and elevate your brand presence online.'
+    title: 'Digital Transformation',
+    desc: 'Modernize legacy systems and integrate advanced digital strategies for growth.',
+    path: '/digital-transformation-services'
   }
 ];
 
@@ -83,12 +81,17 @@ const Services = () => {
           viewport={{ once: true, margin: "-100px" }}
         >
           {servicesData.map((service, index) => (
-            <motion.div key={index} className="service-card glow card" variants={itemVariants}>
-              <div className="service-icon-wrapper glass">
-                <span className="service-icon text-gold">{service.icon}</span>
-              </div>
-              <h3 className="service-title">{service.title}</h3>
-              <p className="service-desc">{service.desc}</p>
+            <motion.div key={index} variants={itemVariants}>
+              <Link to={service.path} className="service-card glow card" style={{ display: 'block', textDecoration: 'none', height: '100%' }}>
+                <div className="service-icon-wrapper glass">
+                  <span className="service-icon text-gold">{service.icon}</span>
+                </div>
+                <h3 className="service-title">{service.title}</h3>
+                <p className="service-desc" style={{ marginBottom: '1.5rem' }}>{service.desc}</p>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--gold-dark)', fontWeight: '500' }}>
+                  Learn More <FiArrowRight />
+                </div>
+              </Link>
             </motion.div>
           ))}
         </motion.div>
