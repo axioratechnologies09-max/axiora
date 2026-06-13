@@ -3,11 +3,13 @@
   top: 0;
   left: 0;
   width: 100%;
+  max-width: 100vw;
   padding: 1.5rem 2rem;
   display: flex;
   justify-content: center;
   z-index: 1000;
   transition: all 0.3s ease;
+  box-sizing: border-box;
 }
 
 .navbar-container.scrolled {
@@ -126,30 +128,30 @@
 }
 
 @media (max-width: 500px) {
-  /* Apply compact layout from the very first render, not just after scroll */
   .navbar-container {
-    padding: 1rem 0.5rem;
+    padding: 0.75rem 0.5rem;
   }
   .navbar-container.scrolled {
     padding: 0.5rem 0.5rem;
   }
-  /* Override the base 2rem left-padding immediately on small screens */
   .navbar-pill {
     padding: 0.5rem 0.75rem !important;
     gap: 0.5rem;
+    max-width: calc(100vw - 1rem);
   }
   .navbar-logo {
-    font-size: 1rem;
+    font-size: 0.95rem;
     padding-left: 0;
     min-width: 0;
     flex-shrink: 1;
+    max-width: calc(100% - 150px); /* always leave room for CTA button */
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
   }
   .btn-sm {
-    padding: 0.5rem 0.875rem;
-    font-size: 0.8rem;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.75rem;
     white-space: nowrap;
     flex-shrink: 0;
   }
