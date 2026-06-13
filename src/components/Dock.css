@@ -28,8 +28,11 @@
   background-color: #120F17;
   border-top-left-radius: 18px;
   border-top-right-radius: 18px;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 -6px 40px rgba(0, 0, 0, 0.9);
+  /* Gold-tinted top border + strong shadow = always visible on any background */
+  border-top: 1.5px solid rgba(212, 175, 55, 0.35);
+  box-shadow:
+    0 -6px 40px rgba(0, 0, 0, 0.95),
+    0 -1px 0 rgba(212, 175, 55, 0.2);
   pointer-events: auto;
 }
 
