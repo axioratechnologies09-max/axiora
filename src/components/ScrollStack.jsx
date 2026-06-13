@@ -46,11 +46,18 @@ const ScrollStack = ({
     return parseFloat(value);
   }, []);
 
+  // Cache height to prevent URL-bar-induced math jumps on mobile
+  const cachedHeightRef = useRef(0);
+  
   const getScrollData = useCallback(() => {
     if (useWindowScroll) {
+      if (!cachedHeightRef.current || window.innerWidth !== lastTransformsRef.current?.width) {
+         cachedHeightRef.current = window.innerHeight;
+         if(lastTransformsRef.current) lastTransformsRef.current.width = window.innerWidth;
+      }
       return {
         scrollTop: window.scrollY,
-        containerHeight: window.innerHeight,
+        containerHeight: cachedHeightRef.current,
         scrollContainer: document.documentElement
       };
     } else {
@@ -302,7 +309,17 @@ const ScrollStack = ({
     setupLenis();
     updateCardTransforms();
 
+    let lastWidth = window.innerWidth;
+    
     const handleResize = () => {
+      // On mobile, scrolling hides/shows the address bar, triggering a resize event
+      // that only changes the height. We must IGNORE height-only changes to prevent 
+      // the stack from violently recalculating its position mid-scroll.
+      if (window.innerWidth === lastWidth) {
+        return; 
+      }
+      lastWidth = window.innerWidth;
+      
       measureOffsets();
       updateCardTransforms();
     };
