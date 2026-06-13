@@ -6,6 +6,15 @@ import Lightfall from './Lightfall';
 import './Hero.css';
 
 const Hero = () => {
+  const handleScrollTo = (id) => {
+    const element = document.getElementById(id);
+    if (element && window.lenis) {
+      window.lenis.scrollTo(element, { offset: -80, duration: 1.4 });
+    } else if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section id="home" className="hero-section">
       <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, zIndex: 0, pointerEvents: 'none', overflow: 'hidden' }}>
@@ -46,8 +55,8 @@ const Hero = () => {
               Premium web development, scalable software solutions, and full-stack engineering for ambitious brands.
             </p>
             <div className="hero-actions">
-              <button className="btn btn-primary">Book Consultation</button>
-              <button className="btn btn-secondary">View Work</button>
+              <button className="btn btn-primary" onClick={() => handleScrollTo('contact')}>Book Consultation</button>
+              <button className="btn btn-secondary" onClick={() => handleScrollTo('portfolio')}>View Work</button>
             </div>
           </motion.div>
         </div>
