@@ -1,0 +1,144 @@
+.process-section {
+  padding: 4rem 0;
+  position: relative;
+  background-color: transparent;
+}
+
+.process-header {
+  margin-bottom: 5rem;
+}
+
+.process-timeline-container {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  padding: 2rem 0;
+}
+
+.timeline-track {
+  position: absolute;
+  left: 24px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background-color: var(--border-strong);
+  z-index: 1;
+}
+
+.timeline-fill {
+  width: 100%;
+  background-color: var(--gold);
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.8);
+  transform-origin: top;
+}
+
+.process-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  position: relative;
+  z-index: 2;
+}
+
+.process-step-item {
+  display: flex;
+  justify-content: flex-end;
+  padding-left: 60px;
+  position: relative;
+}
+
+.process-step-item::before {
+  content: '';
+  position: absolute;
+  left: 17px;
+  top: 30px;
+  width: 16px;
+  height: 16px;
+  background-color: var(--surface);
+  border: 2px solid var(--border-strong);
+  border-radius: 50%;
+  transition: all 0.3s;
+  z-index: 3;
+}
+
+.process-step-item:hover::before {
+  background-color: var(--gold);
+  border-color: var(--gold);
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+}
+
+.step-content {
+  width: 100%;
+  padding: 2.5rem;
+  border-radius: 24px;
+  transition: transform 0.3s ease;
+}
+
+.step-content:hover {
+  transform: translateX(10px);
+}
+
+.step-num {
+  font-family: var(--font-heading);
+  font-size: 3rem;
+  font-weight: 800;
+  line-height: 1;
+  opacity: 0.2;
+  position: absolute;
+  top: 1rem;
+  right: 2rem;
+}
+
+.step-title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.step-desc {
+  font-size: 1.125rem;
+  color: var(--muted);
+}
+
+.step-details {
+  list-style: none;
+  padding: 0;
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.step-details li {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1rem;
+  color: var(--text);
+  font-weight: 500;
+}
+
+.step-icon {
+  color: var(--gold-dark);
+  font-size: 1.2rem;
+}
+
+@media (max-width: 768px) {
+  .process-step-item {
+    padding-left: 40px;
+  }
+  .timeline-track {
+    left: 10px;
+  }
+  .process-step-item::before {
+    left: 3px;
+  }
+  .step-content {
+    padding: 1.5rem;
+  }
+  .process-header {
+    margin-bottom: 2rem;
+  }
+  .process-section {
+    padding: 2rem 0 !important;
+  }
+}

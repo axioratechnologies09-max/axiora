@@ -1,0 +1,107 @@
+.testimonials-section {
+  padding: 8rem 0;
+  position: relative;
+  background-color: transparent;
+  overflow: hidden;
+}
+
+.testimonials-slider-container {
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  padding: 2rem 0;
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.testimonials-track {
+  display: flex;
+  gap: 2rem;
+  padding: 0 2rem;
+  white-space: nowrap;
+  animation: slide-testimonials 40s linear infinite;
+}
+
+.testimonials-slider-container:hover .testimonials-track {
+  animation-play-state: paused;
+}
+
+.testimonial-card {
+  width: 450px;
+  min-width: 450px;
+  height: 100%;
+  min-height: 280px;
+  padding: 3rem;
+  white-space: normal;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.testimonial-review {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: #111111; /* Forced dark color to contrast with .glass background */
+  margin-bottom: 2rem;
+  font-style: italic;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.author-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid var(--gold);
+}
+
+.author-name {
+  font-size: 1.125rem;
+  margin-bottom: 0.25rem;
+}
+
+.author-company {
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+@keyframes slide-testimonials {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@media (max-width: 768px) {
+  .testimonials-slider-container {
+    mask-image: linear-gradient(to right, transparent, black 2%, black 98%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 2%, black 98%, transparent);
+  }
+  
+  .testimonials-track {
+    animation: none;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding: 0 10vw;
+    gap: 1rem;
+    scroll-padding: 0 10vw;
+  }
+
+  .testimonials-track::-webkit-scrollbar {
+    display: none;
+  }
+
+  .testimonial-card {
+    width: 80vw;
+    min-width: 80vw;
+    padding: 2rem 1.5rem;
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+  }
+}
