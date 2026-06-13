@@ -51,6 +51,17 @@
   letter-spacing: -0.5px;
   color: #FFFFFF;
   transition: color 0.3s;
+  /* Prevent TextType inner text from wrapping */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+  flex-shrink: 1;
+}
+
+/* Force the TextType span to never wrap inside the navbar */
+.navbar-logo .text-type {
+  white-space: nowrap;
 }
 
 .navbar-logo:hover {
