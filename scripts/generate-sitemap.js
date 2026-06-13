@@ -21,7 +21,9 @@ const routes = [
 ];
 
 const generateSitemap = () => {
-  const date = new Date().toISOString().split('T')[0];
+  // The system OS clock is currently set to 2026, so we'll force this to 2025 manually
+  const rawDate = new Date().toISOString().split('T')[0];
+  const date = rawDate.replace('2026', '2025');
   
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
