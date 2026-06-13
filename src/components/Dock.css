@@ -1,57 +1,50 @@
 /* Extra bottom spacing for main content so it's not hidden under dock */
 @media (max-width: 860px) {
   main {
-    padding-bottom: calc(90px + env(safe-area-inset-bottom, 0px));
+    padding-bottom: calc(100px + env(safe-area-inset-bottom, 0px));
   }
 }
 
-/* ── Wrapper: fixed to bottom ── */
+/* ── Wrapper: fixed to bottom center, floats above the page ── */
 .mobile-tab-bar-wrapper {
   position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  /* Total height = bar (70px) + phone safe area (e.g. 34px on iPhone) */
-  height: calc(70px + env(safe-area-inset-bottom, 0px));
+  bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+  left: 50%;
+  transform: translateX(-50%);
+  /* Pill adjusts to screen: max 420px, min padding on sides */
+  width: min(420px, calc(100vw - 2rem));
+  height: 62px;
   z-index: 2000;
   pointer-events: none;
   overflow: visible;
 }
 
-/* ── Glass bar background — always distinct from page behind it ── */
+/* ── Floating glass pill background ── */
 .mobile-tab-bar-bg {
   position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  /* Semi-transparent dark glass — visible on dark AND light backgrounds */
-  background: rgba(14, 11, 20, 0.92);
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
-  border-top-left-radius: 18px;
-  border-top-right-radius: 18px;
-  /* Prominent gold line + strong dark shadow = always separates from page */
-  border-top: 2px solid rgba(212, 175, 55, 0.55);
+  inset: 0;
+  background: rgba(14, 11, 20, 0.88);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  /* Full pill shape */
+  border-radius: 9999px;
+  border: 1.5px solid rgba(212, 175, 55, 0.4);
   box-shadow:
-    0 -8px 32px rgba(0, 0, 0, 1),
-    0 -2px 8px rgba(212, 175, 55, 0.15);
+    0 8px 32px rgba(0, 0, 0, 0.8),
+    0 2px 8px rgba(0, 0, 0, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
   pointer-events: auto;
 }
 
-/* ── Icon row — sits above the safe area ── */
+/* ── Icon row ── */
 .mobile-tab-bar-content {
   position: absolute;
-  /* Push content up above safe area so icons are always visible */
-  bottom: env(safe-area-inset-bottom, 0px);
-  left: 0;
-  right: 0;
-  height: 70px;
+  inset: 0;
   display: flex;
   align-items: center;
   justify-content: space-around;
   pointer-events: none;
-  padding: 0 0.25rem;
+  padding: 0 0.75rem;
 }
 
 /* Empty placeholder keeps spacing symmetric around the FAB */
@@ -69,7 +62,7 @@
   flex: 1;
   height: 100%;
   cursor: pointer;
-  color: rgba(255, 255, 255, 0.4);
+  color: rgba(255, 255, 255, 0.5);
   transition: color 0.25s ease;
   pointer-events: auto;
   gap: 3px;
@@ -81,14 +74,14 @@
 }
 
 .tab-item:not(.active):hover {
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.8);
 }
 
 .tab-icon {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   transition: transform 0.25s ease;
 }
 
@@ -97,20 +90,19 @@
 }
 
 .tab-label {
-  font-size: 0.6rem;
+  font-size: 0.55rem;
   font-weight: 500;
   letter-spacing: 0.3px;
 }
 
-/* ── FAB: floats above the bar center ── */
+/* ── FAB: floats above the pill center ── */
 .center-fab {
   position: absolute;
-  /* Sit above the icon row top edge */
-  bottom: calc(env(safe-area-inset-bottom, 0px) + 42px);
+  top: -22px;          /* Floats 22px above the pill */
   left: 50%;
   transform: translateX(-50%);
-  width: 56px;
-  height: 56px;
+  width: 50px;
+  height: 50px;
   background: var(--gold);
   border-radius: 50%;
   display: flex;
@@ -120,7 +112,9 @@
   pointer-events: auto;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
-  box-shadow: 0 4px 18px rgba(212, 175, 55, 0.55);
+  box-shadow:
+    0 4px 18px rgba(212, 175, 55, 0.6),
+    0 0 0 3px rgba(14, 11, 20, 0.88);  /* dark ring to separate from pill */
   transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
               box-shadow 0.3s ease;
   z-index: 10;
@@ -129,11 +123,14 @@
 .center-fab:hover,
 .center-fab:active {
   transform: translateX(-50%) scale(1.1);
-  box-shadow: 0 6px 24px rgba(212, 175, 55, 0.75);
+  box-shadow: 0 6px 24px rgba(212, 175, 55, 0.75), 0 0 0 3px rgba(14, 11, 20, 0.88);
 }
 
 .center-fab.active {
-  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.25), 0 4px 18px rgba(212, 175, 55, 0.55);
+  box-shadow:
+    0 0 0 3px rgba(212, 175, 55, 0.3),
+    0 4px 18px rgba(212, 175, 55, 0.6),
+    0 0 0 5px rgba(14, 11, 20, 0.88);
 }
 
 @media (min-width: 861px) {
