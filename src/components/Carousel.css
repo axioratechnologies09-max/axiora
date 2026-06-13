@@ -169,3 +169,9 @@
 .carousel-indicator.inactive {
   background-color: rgba(255, 255, 255, 0.3);
 }
+
+/* Overrides for custom content injected from About.jsx */
+.carousel-item .slide-extra-text,
+.carousel-item .slide-list li {
+  color: rgba(255, 255, 255, 0.7);
+}
