@@ -5,7 +5,7 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const SITE_URL = 'https://axiora-technologies.vercel.app';
+const SITE_URL = 'https://axiora-technologies.in';
 
 // Read all route definitions or list them here
 const routes = [
@@ -20,12 +20,11 @@ const routes = [
 ];
 
 const generateSitemap = () => {
-  // The system OS clock is currently set to 2026, so we'll force this to 2025 manually
-  const rawDate = new Date().toISOString().split('T')[0];
-  const date = rawDate.replace('2026', '2025');
+  // Use strictly standard ISO format for W3C Datetime compliance
+  const date = new Date().toISOString();
   
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
 ${routes.map(route => `  <url>
     <loc>${SITE_URL}${route.path}</loc>
     <lastmod>${date}</lastmod>

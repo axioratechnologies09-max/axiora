@@ -1,4 +1,4 @@
-export const SITE_URL = 'https://axiora-technologies.vercel.app';
+export const SITE_URL = 'https://axiora-technologies.in';
 export const SITE_NAME = 'Axiora Technologies';
 export const PHONE_NUMBER = '+919249047267';
 export const CONTACT_EMAIL = 'axiora.technologies09@gmail.com';
@@ -9,11 +9,11 @@ export const SOCIAL_LINKS = {
 // Keyword mapping and Meta Data
 export const SEO_DATA = {
   home: {
-    title: 'Web Development Company & Digital Experiences | Axiora Technologies',
-    description: 'Axiora Technologies is a premium web development agency building next-generation digital experiences, high-performance web applications, and stunning websites.',
-    keywords: 'Web Development Company, Custom Web Design, Frontend Development, React Agency, Digital Experiences',
+    title: 'Axiora Technologies | Web Development Company in Palakkad',
+    description: 'Axiora Technologies is the premier web development company in Palakkad, Kerala. We build next-generation digital experiences, high-performance web applications, and stunning websites.',
+    keywords: 'Axiora, Axiora Technologies, Web Development Company in Palakkad, Web Design Palakkad, Best Web Developers Palakkad, React Agency Kerala',
     path: '/',
-    primaryKeyword: 'Web Development Company'
+    primaryKeyword: 'Axiora Technologies'
   },
   frontend: {
     title: 'Enterprise Frontend Development Services | Axiora Technologies',
@@ -79,9 +79,9 @@ export const organizationSchema = {
   "email": CONTACT_EMAIL,
   "address": {
     "@type": "PostalAddress",
-    "addressLocality": "San Francisco",
-    "addressRegion": "CA",
-    "addressCountry": "US"
+    "addressLocality": "Palakkad",
+    "addressRegion": "Kerala",
+    "addressCountry": "IN"
   },
   "sameAs": [
     SOCIAL_LINKS.instagram
