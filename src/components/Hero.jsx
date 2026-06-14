@@ -48,8 +48,8 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <h1 className="hero-title" style={{ fontSize: '4rem' }}>
-              <ShinyText text="Web Development " color="var(--gold-dark)" shineColor="#FFFFFF" speed={3} />
+            <h1 className="hero-title">
+              <ShinyText text="Web Development Company" color="var(--gold-dark)" shineColor="#FFFFFF" speed={3} />
               <br/>
               & Digital Experiences
             </h1>
