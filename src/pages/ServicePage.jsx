@@ -111,6 +111,7 @@ const ServicePage = ({ type }) => {
         description={seo.description}
         keywords={seo.keywords}
         path={seo.path}
+        ogImage={serviceData.heroImage}
       />
       <StructuredData type="Service" data={serviceSchema} breadcrumbs={breadcrumbs} />
       {faqSchema && <StructuredData type="FAQPage" data={faqSchema} />}
