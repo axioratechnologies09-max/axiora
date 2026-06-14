@@ -4,24 +4,24 @@ import { FiChevronDown } from 'react-icons/fi';
 
 const faqs = [
   {
-    q: 'What does an AI development company do?',
-    a: 'We build custom artificial intelligence solutions such as predictive models, natural language processing tools, generative AI applications, and intelligent workflow automations to help businesses operate smarter.'
+    q: 'Do you offer custom website design?',
+    a: 'Yes, we specialize in bespoke website designs tailored to your brand identity. We do not use pre-made templates; every project is designed from scratch focusing on user experience, conversion optimization, and modern aesthetics.'
   },
   {
-    q: 'How much does custom software development cost?',
-    a: 'Costs vary widely based on complexity, scale, and specific requirements. A basic MVP might start around $15,000, while enterprise-grade scalable SaaS platforms can range from $50,000 to over $100,000. We offer flexible pricing models tailored to your budget and goals.'
+    q: 'How much does custom web development cost?',
+    a: 'Project costs vary widely based on scope, complexity, and required integrations. A simple marketing website might start around $5,000, while complex custom web applications and e-commerce platforms can range from $20,000 to $100,000+. We provide detailed proposals after understanding your specific needs.'
   },
   {
-    q: 'What is SaaS development?',
-    a: 'SaaS (Software as a Service) development involves building cloud-based software that users access via subscription. We handle the complex architectures required for multi-tenant data isolation, scalable infrastructure, and recurring billing systems.'
+    q: 'What is a custom web application?',
+    a: 'Unlike a standard website, a custom web application involves building complex, cloud-based interfaces that users interact with (like portals, dashboards, or SaaS products). We handle the complex architectures required for multi-tenant data isolation, scalable infrastructure, and secure backend systems.'
   },
   {
-    q: 'Do you provide ongoing cloud engineering and DevOps support?',
-    a: 'Yes, our cloud engineering services include continuous integration and deployment (CI/CD), infrastructure monitoring, security updates, and performance optimization on platforms like AWS, Google Cloud, and Azure.'
+    q: 'Do you provide ongoing website maintenance?',
+    a: 'Yes, we offer comprehensive maintenance packages that include performance monitoring, security updates, content updates, and SEO optimization to ensure your website remains fast and secure.'
   },
   {
-    q: 'How long does a digital transformation project take?',
-    a: 'Timelines depend on the scope of legacy system modernization and integration. Most mid-sized digital transformation projects take 3 to 6 months to fully implement and migrate, ensuring minimal disruption to your operations.'
+    q: 'How long does it take to build a website?',
+    a: 'A standard corporate website usually takes 4 to 8 weeks from design to launch. More complex e-commerce platforms or custom web applications may take 3 to 6 months depending on the required features.'
   }
 ];
 

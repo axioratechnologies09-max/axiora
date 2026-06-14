@@ -7,45 +7,33 @@ import './Services.css';
 const servicesData = [
   {
     icon: <FiCode />,
-    title: 'AI Development',
-    desc: 'Custom machine learning models, generative AI tools, and intelligent automation systems.',
-    path: '/ai-development-services'
+    title: 'Frontend Development',
+    desc: 'Pixel-perfect, responsive user interfaces built with React, Next.js, and modern CSS frameworks.'
   },
   {
     icon: <FiLayout />,
-    title: 'Custom Software',
-    desc: 'Scalable custom software development services for enterprises and startups.',
-    path: '/custom-software-development'
+    title: 'Custom Web Apps',
+    desc: 'Scalable, high-performance web applications tailored to your unique business needs.'
+  },
+  {
+    icon: <FiShoppingCart />,
+    title: 'E-Commerce Solutions',
+    desc: 'Robust online stores with secure payment gateways and seamless shopping experiences.'
   },
   {
     icon: <FiGrid />,
-    title: 'SaaS Development',
-    desc: 'B2B SaaS platforms with multi-tenant architectures and secure payments.',
-    path: '/saas-development-services'
+    title: 'CMS & Headless',
+    desc: 'Flexible content management systems and modern headless architectures for ultimate control.'
   },
   {
     icon: <FiGlobe />,
-    title: 'Cloud & DevOps',
-    desc: 'Secure and scalable cloud engineering services, AWS deployment, and CI/CD pipelines.',
-    path: '/cloud-devops-services'
-  },
-  {
-    icon: <FiSmartphone />,
-    title: 'Mobile App Development',
-    desc: 'Native and cross-platform mobile experiences for iOS and Android devices.',
-    path: '/mobile-app-development'
+    title: 'Backend & APIs',
+    desc: 'Secure and scalable server-side architectures, RESTful APIs, and database design.'
   },
   {
     icon: <FiSearch />,
-    title: 'Web Development',
-    desc: 'High-performance, responsive, and SEO-optimized websites and web applications.',
-    path: '/web-development-services'
-  },
-  {
-    icon: <FiShare2 />,
-    title: 'Digital Transformation',
-    desc: 'Modernize legacy systems and integrate advanced digital strategies for growth.',
-    path: '/digital-transformation-services'
+    title: 'SEO & Performance',
+    desc: 'Technical SEO optimization, lightning-fast load times, and core web vitals improvements.'
   }
 ];
 
@@ -70,7 +58,7 @@ const Services = () => {
       <div className="container">
         <div className="services-header text-center">
           <span className="section-tag glow-text">What We Do</span>
-          <h2 className="section-title">Premium <span>Engineering</span></h2>
+          <h2 className="section-title">Web <span>Development</span></h2>
         </div>
 
         <motion.div 
@@ -82,16 +70,13 @@ const Services = () => {
         >
           {servicesData.map((service, index) => (
             <motion.div key={index} variants={itemVariants}>
-              <Link to={service.path} className="service-card glow card" style={{ display: 'block', textDecoration: 'none', height: '100%' }}>
+              <div className="service-card glow card" style={{ display: 'block', height: '100%' }}>
                 <div className="service-icon-wrapper glass">
                   <span className="service-icon text-gold">{service.icon}</span>
                 </div>
                 <h3 className="service-title">{service.title}</h3>
                 <p className="service-desc" style={{ marginBottom: '1.5rem' }}>{service.desc}</p>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--gold-dark)', fontWeight: '500' }}>
-                  Learn More <FiArrowRight />
-                </div>
-              </Link>
+              </div>
             </motion.div>
           ))}
         </motion.div>

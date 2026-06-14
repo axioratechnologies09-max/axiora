@@ -47,7 +47,7 @@ const About = () => {
     {
       id: 2,
       title: "What We Build",
-      description: "Custom websites, SaaS platforms, business automation tools, enterprise dashboards, and e-commerce systems.",
+      description: "Custom websites, web applications, frontend portals, enterprise dashboards, and e-commerce systems.",
       image: "/portfolio/ecommerce_dashboard_1781258560166.png",
       content: (
         <ul className="slide-list">
@@ -83,11 +83,11 @@ const About = () => {
     {
       id: 4,
       title: "Future Vision",
-      description: "Helping brands dominate digitally through innovative software engineering.",
+      description: "Helping brands dominate digitally through innovative web development.",
       image: "/portfolio/ai_saas_1781258548402.png",
       content: (
         <>
-          <p className="slide-extra-text">We don't just build software; we engineer ecosystems designed to adapt, scale, and thrive in an ever-evolving digital landscape.</p>
+          <p className="slide-extra-text">We don't just build websites; we engineer digital experiences designed to adapt, scale, and thrive in an ever-evolving digital landscape.</p>
           <div className="slide-stats-grid">
             <div className="slide-stat-box">
               <div className="slide-stat-value" style={{ fontSize: '2.5rem' }}><FaChartLine /></div>

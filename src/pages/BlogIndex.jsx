@@ -51,11 +51,11 @@ const BlogIndex = () => {
           <div style={{ textAlign: 'center', marginTop: '4rem', padding: '4rem', background: 'var(--card)', borderRadius: '24px', border: '1px solid var(--border-light)' }}>
             <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '2rem', marginBottom: '1rem' }}>Coming Soon</h2>
             <p style={{ color: 'var(--muted)', fontSize: '1.1rem', maxWidth: '600px', margin: '0 auto 2rem' }}>
-              We're currently writing premium, in-depth articles on software engineering, AI architecture, and digital transformation. Check back soon for expert insights.
+              We're currently writing premium, in-depth articles on modern web development, frontend architecture, and digital experiences. Check back soon for expert insights.
             </p>
             <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-              {['AI & Machine Learning', 'SaaS Architecture', 'Cloud & DevOps', 'Web Development'].map((cat, i) => (
-                <span key={i} style={{ padding: '0.5rem 1rem', background: 'rgba(0,0,0,0.05)', borderRadius: '99px', fontSize: '0.9rem', fontWeight: '500' }}>
+              {['Frontend Development', 'React & Next.js', 'UI/UX Design', 'Performance Optimization'].map((cat, i) => (
+                <span key={i} className="glass" style={{ padding: '0.5rem 1rem', borderRadius: '100px', fontSize: '0.9rem', color: 'var(--gold)' }}>
                   {cat}
                 </span>
               ))}

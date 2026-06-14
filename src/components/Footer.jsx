@@ -11,7 +11,7 @@ const Footer = () => {
           <div className="footer-brand">
             <p className="footer-logo" style={{ fontFamily: 'var(--font-heading)', fontSize: '2rem', fontWeight: '700', marginBottom: '1rem' }}>Axiora Technologies</p>
             <p className="footer-desc">
-              High-performance digital solutions for modern brands. We build scalable websites, SaaS platforms, and enterprise applications.
+              High-performance digital solutions for modern brands. We build bespoke websites, web applications, and premium digital experiences.
             </p>
 
           </div>
@@ -31,11 +31,11 @@ const Footer = () => {
             <div className="link-column">
               <h3>Services</h3>
               <ul>
-                <li><Link to="/ai-development-services">AI Development</Link></li>
-                <li><Link to="/custom-software-development">Custom Software</Link></li>
-                <li><Link to="/saas-development-services">SaaS Development</Link></li>
-                <li><Link to="/cloud-devops-services">Cloud & DevOps</Link></li>
-                <li><Link to="/web-development-services">Web Development</Link></li>
+                <li><a href="#services">Frontend Engineering</a></li>
+                <li><a href="#services">Custom Web Apps</a></li>
+                <li><a href="#services">E-Commerce Platforms</a></li>
+                <li><a href="#services">CMS & Headless</a></li>
+                <li><a href="#services">SEO Optimization</a></li>
               </ul>
             </div>
 

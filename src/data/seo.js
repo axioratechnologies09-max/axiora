@@ -9,11 +9,11 @@ export const SOCIAL_LINKS = {
 // Keyword mapping and Meta Data
 export const SEO_DATA = {
   home: {
-    title: 'AI Development Company & Software Engineering | Axiora Technologies',
-    description: 'Axiora Technologies is a premium AI development company and software engineering agency building next-generation digital experiences, SaaS platforms, and cloud solutions.',
-    keywords: 'AI Development Company, Software Development Company, SaaS Development Services, Cloud Engineering Services, Digital Transformation Solutions',
+    title: 'Web Development Company & Digital Experiences | Axiora Technologies',
+    description: 'Axiora Technologies is a premium web development agency building next-generation digital experiences, high-performance web applications, and stunning websites.',
+    keywords: 'Web Development Company, Custom Web Design, Frontend Development, React Agency, Digital Experiences',
     path: '/',
-    primaryKeyword: 'AI Development Company'
+    primaryKeyword: 'Web Development Company'
   },
   aiServices: {
     title: 'AI Development Services & Solutions | Axiora Technologies',
@@ -65,11 +65,11 @@ export const SEO_DATA = {
     primaryKeyword: 'Digital Transformation Consulting'
   },
   blogIndex: {
-    title: 'Insights on AI, SaaS & Software Engineering | Axiora Blog',
-    description: 'Read the latest insights, tutorials, and case studies on AI development, SaaS architectures, cloud engineering, and digital transformation.',
-    keywords: 'Software Development Blog, AI Insights, Tech Blog, SaaS Architecture, Cloud DevOps Guide',
+    title: 'Insights on Web Development & Design | Axiora Blog',
+    description: 'Read the latest insights, tutorials, and case studies on frontend engineering, web application architecture, and digital experiences.',
+    keywords: 'Web Development Blog, Frontend Insights, Tech Blog, React Architecture, Web Design Guide',
     path: '/blog',
-    primaryKeyword: 'Software Development Blog'
+    primaryKeyword: 'Web Development Blog'
   }
 };
 
@@ -81,7 +81,7 @@ export const organizationSchema = {
   "url": SITE_URL,
   "logo": `${SITE_URL}/logo.jpeg`,
   "image": `${SITE_URL}/logo.jpeg`,
-  "description": "AI, SaaS, Cloud Engineering and Software Development Company",
+  "description": "Premium Web Development Company & Digital Experiences Agency",
   "telephone": PHONE_NUMBER,
   "email": CONTACT_EMAIL,
   "address": {

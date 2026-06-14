@@ -49,12 +49,12 @@ const Hero = () => {
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
             <h1 className="hero-title" style={{ fontSize: '4rem' }}>
-              <ShinyText text="AI Development Company" color="var(--gold-dark)" shineColor="#FFFFFF" speed={3} />
+              <ShinyText text="Web Development " color="var(--gold-dark)" shineColor="#FFFFFF" speed={3} />
               <br/>
-              & Software Engineering
+              & Digital Experiences
             </h1>
             <p className="hero-subtitle">
-              We are a premium AI development company and software engineering agency. We build next-generation scalable SaaS platforms, intelligent automation systems, and enterprise cloud solutions for ambitious brands.
+              We are a premium web development agency. We build next-generation websites, high-performance web applications, and stunning digital experiences for ambitious brands.
             </p>
             <div className="hero-actions">
               <button className="btn btn-primary" onClick={() => handleScrollTo('contact')}>Start a Project</button>

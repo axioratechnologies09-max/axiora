@@ -7,7 +7,7 @@ const industriesData = [
   { icon: <FiGlobe />, title: 'Fintech & Banking', desc: 'Secure, high-frequency trading platforms and banking portals.' },
   { icon: <FiDatabase />, title: 'Healthcare & MedTech', desc: 'HIPAA-compliant telemedicine and patient management systems.' },
   { icon: <FiCloud />, title: 'E-Commerce & Retail', desc: 'Scalable storefronts and real-time inventory management.' },
-  { icon: <FiCode />, title: 'SaaS & Tech', desc: 'Multi-tenant architectures and B2B software products.' },
+  { icon: <FiCode />, title: 'Startups & Tech', desc: 'Custom web platforms and corporate websites for modern tech companies.' },
   { icon: <FiSmartphone />, title: 'Education & EdTech', desc: 'Interactive learning platforms and student portals.' },
   { icon: <FiLayers />, title: 'Logistics & Supply', desc: 'Real-time tracking and automated supply chain solutions.' }
 ];
