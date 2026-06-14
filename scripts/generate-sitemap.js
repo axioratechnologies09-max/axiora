@@ -9,7 +9,14 @@ const SITE_URL = 'https://axiora-technologies.vercel.app';
 
 // Read all route definitions or list them here
 const routes = [
-  { path: '/', priority: 1.0, changefreq: 'weekly' }
+  { path: '/', priority: 1.0, changefreq: 'weekly' },
+  { path: '/services/frontend-development', priority: 0.9, changefreq: 'monthly' },
+  { path: '/services/custom-web-apps', priority: 0.9, changefreq: 'monthly' },
+  { path: '/services/ecommerce-solutions', priority: 0.9, changefreq: 'monthly' },
+  { path: '/services/cms-headless', priority: 0.9, changefreq: 'monthly' },
+  { path: '/services/backend-apis', priority: 0.9, changefreq: 'monthly' },
+  { path: '/services/seo-performance', priority: 0.9, changefreq: 'monthly' },
+  { path: '/blog', priority: 0.8, changefreq: 'weekly' }
 ];
 
 const generateSitemap = () => {

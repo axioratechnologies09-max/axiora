@@ -27,7 +27,7 @@ const About = () => {
       id: 1,
       title: "Who We Are",
       description: "Axiora Technologies builds premium digital products with a focus on speed, scalability, and exceptional user experience.",
-      image: "/portfolio/fintech_landing_1781258535982.png",
+      image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1200&auto=format&fit=crop",
       content: (
         <>
           <p className="slide-extra-text">We bridge the gap between complex engineering and beautiful design, ensuring your platform not only looks premium but operates with enterprise-grade reliability.</p>
@@ -48,7 +48,7 @@ const About = () => {
       id: 2,
       title: "What We Build",
       description: "Custom websites, web applications, frontend portals, enterprise dashboards, and e-commerce systems.",
-      image: "/portfolio/ecommerce_dashboard_1781258560166.png",
+      image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1200&auto=format&fit=crop",
       content: (
         <ul className="slide-list">
           <li><FaCheckCircle className="slide-list-icon" /> High-conversion Landing Pages</li>
@@ -62,7 +62,7 @@ const About = () => {
       id: 3,
       title: "Why Choose Us",
       description: "Performance-focused architecture, modern technology stacks, and long-term business growth strategies.",
-      image: "/portfolio/saas_analytics_1781258522852.png",
+      image: "https://images.unsplash.com/photo-1556761175-4b46a572b786?q=80&w=1200&auto=format&fit=crop",
       content: (
         <div className="slide-stats-grid">
           <div className="slide-stat-box">
@@ -84,7 +84,7 @@ const About = () => {
       id: 4,
       title: "Future Vision",
       description: "Helping brands dominate digitally through innovative web development.",
-      image: "/portfolio/ai_saas_1781258548402.png",
+      image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200&auto=format&fit=crop",
       content: (
         <>
           <p className="slide-extra-text">We don't just build websites; we engineer digital experiences designed to adapt, scale, and thrive in an ever-evolving digital landscape.</p>
@@ -140,7 +140,7 @@ const About = () => {
                     {slide.content && slide.content}
                   </div>
                   <div className="about-slide-image">
-                    <img src={slide.image} alt={slide.title} />
+                    <img src={slide.image} alt={slide.title} style={{ objectFit: 'cover' }} />
                   </div>
                 </div>
               </motion.div>

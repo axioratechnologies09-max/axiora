@@ -8,32 +8,38 @@ const servicesData = [
   {
     icon: <FiCode />,
     title: 'Frontend Development',
-    desc: 'Pixel-perfect, responsive user interfaces built with React, Next.js, and modern CSS frameworks.'
+    desc: 'Pixel-perfect, responsive user interfaces built with React, Next.js, and modern CSS frameworks.',
+    path: '/services/frontend-development'
   },
   {
     icon: <FiLayout />,
     title: 'Custom Web Apps',
-    desc: 'Scalable, high-performance web applications tailored to your unique business needs.'
+    desc: 'Scalable, high-performance web applications tailored to your unique business needs.',
+    path: '/services/custom-web-apps'
   },
   {
     icon: <FiShoppingCart />,
     title: 'E-Commerce Solutions',
-    desc: 'Robust online stores with secure payment gateways and seamless shopping experiences.'
+    desc: 'Robust online stores with secure payment gateways and seamless shopping experiences.',
+    path: '/services/ecommerce-solutions'
   },
   {
     icon: <FiGrid />,
     title: 'CMS & Headless',
-    desc: 'Flexible content management systems and modern headless architectures for ultimate control.'
+    desc: 'Flexible content management systems and modern headless architectures for ultimate control.',
+    path: '/services/cms-headless'
   },
   {
     icon: <FiGlobe />,
     title: 'Backend & APIs',
-    desc: 'Secure and scalable server-side architectures, RESTful APIs, and database design.'
+    desc: 'Secure and scalable server-side architectures, RESTful APIs, and database design.',
+    path: '/services/backend-apis'
   },
   {
     icon: <FiSearch />,
     title: 'SEO & Performance',
-    desc: 'Technical SEO optimization, lightning-fast load times, and core web vitals improvements.'
+    desc: 'Technical SEO optimization, lightning-fast load times, and core web vitals improvements.',
+    path: '/services/seo-performance'
   }
 ];
 
@@ -70,13 +76,18 @@ const Services = () => {
         >
           {servicesData.map((service, index) => (
             <motion.div key={index} variants={itemVariants}>
-              <div className="service-card glow card" style={{ display: 'block', height: '100%' }}>
-                <div className="service-icon-wrapper glass">
-                  <span className="service-icon text-gold">{service.icon}</span>
+              <Link to={service.path} style={{ textDecoration: 'none' }}>
+                <div className="service-card glow card" style={{ display: 'flex', flexDirection: 'column', height: '100%', cursor: 'pointer' }}>
+                  <div className="service-icon-wrapper glass">
+                    <span className="service-icon text-gold">{service.icon}</span>
+                  </div>
+                  <h3 className="service-title">{service.title}</h3>
+                  <p className="service-desc" style={{ marginBottom: '1.5rem', flexGrow: 1 }}>{service.desc}</p>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--gold)', fontWeight: 'bold' }}>
+                    Learn More <FiArrowRight />
+                  </div>
                 </div>
-                <h3 className="service-title">{service.title}</h3>
-                <p className="service-desc" style={{ marginBottom: '1.5rem' }}>{service.desc}</p>
-              </div>
+              </Link>
             </motion.div>
           ))}
         </motion.div>

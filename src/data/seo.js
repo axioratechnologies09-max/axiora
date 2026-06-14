@@ -15,54 +15,47 @@ export const SEO_DATA = {
     path: '/',
     primaryKeyword: 'Web Development Company'
   },
-  aiServices: {
-    title: 'AI Development Services & Solutions | Axiora Technologies',
-    description: 'Transform your business with our enterprise AI development services. We build custom machine learning models, generative AI tools, and intelligent automation systems.',
-    keywords: 'AI Development Services, Machine Learning Company, Generative AI Solutions, AI Consulting, Custom AI Development',
-    path: '/ai-development-services',
-    primaryKeyword: 'AI Development Services'
+  frontend: {
+    title: 'Enterprise Frontend Development Services | Axiora Technologies',
+    description: 'Premium frontend development services. We build pixel-perfect, highly responsive, and accessible user interfaces using React, Next.js, and modern CSS frameworks.',
+    keywords: 'Frontend Development Services, React Development Agency, Next.js Experts, UI Engineering, Custom Web Interfaces',
+    path: '/services/frontend-development',
+    primaryKeyword: 'Frontend Development Services'
   },
-  customSoftware: {
-    title: 'Custom Software Development Services | Axiora Technologies',
-    description: 'Scalable custom software development services for enterprises and startups. We engineer robust backend systems, APIs, and high-performance applications.',
-    keywords: 'Custom Software Development, Enterprise Software Company, Backend Engineering, API Development, Scalable Applications',
-    path: '/custom-software-development',
-    primaryKeyword: 'Custom Software Development Services'
+  customWebApps: {
+    title: 'Custom Web Application Development | Axiora Technologies',
+    description: 'Scalable and high-performance custom web applications tailored to your business logic. We engineer robust SPAs and complex web portals.',
+    keywords: 'Custom Web App Development, Web Application Agency, Enterprise Web Apps, Custom Web Portals, SPA Development',
+    path: '/services/custom-web-apps',
+    primaryKeyword: 'Custom Web Application Development'
   },
-  saasDevelopment: {
-    title: 'SaaS Development Company & Services | Axiora Technologies',
-    description: 'Launch your next software product with our SaaS development company. We specialize in multi-tenant architectures, secure payments, and engaging UI/UX.',
-    keywords: 'SaaS Development Company, B2B SaaS Development, Multi-tenant Architecture, SaaS Product Development',
-    path: '/saas-development-services',
-    primaryKeyword: 'SaaS Development Company'
+  ecommerce: {
+    title: 'E-Commerce Development Solutions | Axiora Technologies',
+    description: 'Robust online stores and custom e-commerce solutions with secure payment gateways, optimized conversion funnels, and seamless shopping experiences.',
+    keywords: 'E-Commerce Development, Custom E-Commerce Solutions, Shopify Plus Experts, Custom Shopping Cart Development',
+    path: '/services/ecommerce-solutions',
+    primaryKeyword: 'E-Commerce Development Solutions'
   },
-  cloudDevops: {
-    title: 'Cloud Engineering Services & DevOps | Axiora Technologies',
-    description: 'Secure and scalable cloud engineering services. We handle AWS deployment, CI/CD pipelines, Docker containerization, and infrastructure as code.',
-    keywords: 'Cloud Engineering Services, DevOps Consulting, AWS Deployment, CI/CD Automation, Cloud Infrastructure',
-    path: '/cloud-devops-services',
-    primaryKeyword: 'Cloud Engineering Services'
+  cmsHeadless: {
+    title: 'CMS & Headless Architecture Services | Axiora Technologies',
+    description: 'Flexible content management systems and modern headless architectures (Sanity, Strapi, Contentful) for ultimate content control and omnichannel delivery.',
+    keywords: 'Headless CMS Development, Custom CMS Solutions, Strapi Experts, Sanity Developer, Omnichannel Architecture',
+    path: '/services/cms-headless',
+    primaryKeyword: 'Headless CMS Architecture'
   },
-  mobileApp: {
-    title: 'Mobile App Development Company | Axiora Technologies',
-    description: 'Premium mobile app development company creating native and cross-platform experiences for iOS and Android that drive engagement and revenue.',
-    keywords: 'Mobile App Development Company, iOS App Development, Android App Development, React Native Apps, Cross Platform Apps',
-    path: '/mobile-app-development',
-    primaryKeyword: 'Mobile App Development Company'
+  backend: {
+    title: 'Backend Engineering & API Development | Axiora Technologies',
+    description: 'Secure, scalable server-side architectures, RESTful APIs, GraphQL integrations, and robust database design for modern web platforms.',
+    keywords: 'Backend Development Services, API Development, Node.js Engineering, Database Design, Scalable Server Architecture',
+    path: '/services/backend-apis',
+    primaryKeyword: 'Backend Engineering Services'
   },
-  webDevelopment: {
-    title: 'Web Development Company | Axiora Technologies',
-    description: 'Award-winning web development company building high-performance, responsive, and SEO-optimized websites and web applications for modern brands.',
-    keywords: 'Web Development Company, Custom Web Design, Frontend Development, React Agency, Web Applications',
-    path: '/web-development-services',
-    primaryKeyword: 'Web Development Company'
-  },
-  digitalTransformation: {
-    title: 'Digital Transformation Consulting Services | Axiora Technologies',
-    description: 'Accelerate your growth with our digital transformation consulting. We modernize legacy systems and integrate advanced digital solutions.',
-    keywords: 'Digital Transformation Consulting, Enterprise Modernization, Legacy System Upgrade, Digital Strategy',
-    path: '/digital-transformation-services',
-    primaryKeyword: 'Digital Transformation Consulting'
+  seoPerformance: {
+    title: 'SEO & Core Web Vitals Optimization | Axiora Technologies',
+    description: 'Technical SEO optimization, lightning-fast load times, and Core Web Vitals improvements to dominate search engine rankings.',
+    keywords: 'Technical SEO Services, Core Web Vitals Optimization, Website Performance Agency, Page Speed Experts',
+    path: '/services/seo-performance',
+    primaryKeyword: 'Technical SEO Optimization'
   },
   blogIndex: {
     title: 'Insights on Web Development & Design | Axiora Blog',

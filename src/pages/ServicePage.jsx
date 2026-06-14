@@ -1,13 +1,22 @@
 import React, { useEffect } from 'react';
-import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
-import { FaCheckCircle, FaArrowRight } from 'react-icons/fa';
+import { motion, AnimatePresence } from 'framer-motion';
+import { FiChevronDown } from 'react-icons/fi';
 import SEOHead from '../components/SEO/SEOHead';
 import StructuredData from '../components/SEO/StructuredData';
 import { SEO_DATA, SITE_URL } from '../data/seo';
+import { SERVICES_DATA } from '../data/servicesData';
+import { 
+  ServiceHero, 
+  ServiceFeatures, 
+  ProcessTimeline, 
+  TechStack, 
+  CaseStudySlider
+} from '../components/Service/ServiceBlocks';
+import './ServicePage.css';
 
 const ServicePage = ({ type }) => {
   const seo = SEO_DATA[type];
+  const serviceData = SERVICES_DATA[type];
 
   useEffect(() => {
     if (window.lenis) {
@@ -17,7 +26,7 @@ const ServicePage = ({ type }) => {
     }
   }, [type]);
 
-  if (!seo) return <div>Service not found</div>;
+  if (!seo || !serviceData) return <div>Service not found</div>;
 
   const breadcrumbs = [
     { name: 'Home', path: '/' },
@@ -37,31 +46,66 @@ const ServicePage = ({ type }) => {
     "url": `${SITE_URL}${seo.path}`
   };
 
-  const faqSchema = {
+  const faqSchema = serviceData.faqs?.length > 0 ? {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": `Why choose Axiora Technologies for ${seo.primaryKeyword}?`,
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": `We offer premium, scalable solutions tailored to your business needs, ensuring high performance, security, and exceptional user experience in ${seo.primaryKeyword}.`
-        }
-      },
-      {
-        "@type": "Question",
-        "name": `How long does a typical ${seo.primaryKeyword.toLowerCase()} project take?`,
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Project timelines vary based on complexity, but typically range from 2 to 6 months for enterprise-grade implementations."
-        }
+    "mainEntity": serviceData.faqs.map(faq => ({
+      "@type": "Question",
+      "name": faq.q,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.a
       }
-    ]
+    }))
+  } : null;
+
+
+
+  // Reusable FAQ Component for the bottom of the page
+  const FAQSection = () => {
+    const [openIndex, setOpenIndex] = React.useState(null);
+    if (!serviceData.faqs || serviceData.faqs.length === 0) return null;
+
+    return (
+      <section className="section">
+        <div className="container" style={{ maxWidth: '800px' }}>
+          <div className="text-center mb-5">
+            <h2 className="section-title">Frequently Asked <span>Questions</span></h2>
+          </div>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+            {serviceData.faqs.map((faq, index) => (
+              <div key={index} className="glass" style={{ borderRadius: '16px', overflow: 'hidden', border: `1px solid ${openIndex === index ? 'var(--gold)' : 'var(--border-light)'}`, transition: 'border-color 0.3s ease' }}>
+                <button
+                  style={{ width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '1.5rem', background: 'none', border: 'none', cursor: 'pointer', textAlign: 'left', color: 'var(--text)', fontSize: '1.1rem', fontWeight: '600', fontFamily: 'var(--font-sans)' }}
+                  onClick={() => setOpenIndex(openIndex === index ? null : index)}
+                  aria-expanded={openIndex === index}
+                >
+                  {faq.q}
+                  <motion.div animate={{ rotate: openIndex === index ? 180 : 0 }} transition={{ duration: 0.3 }}>
+                    <FiChevronDown style={{ color: 'var(--gold-dark)' }} />
+                  </motion.div>
+                </button>
+                <AnimatePresence>
+                  {openIndex === index && (
+                    <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.3 }}>
+                      <div style={{ padding: '0 1.5rem 1.5rem', color: 'var(--muted)', lineHeight: '1.6' }}>
+                        {faq.a}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    );
   };
 
+  const themeClass = serviceData.theme === 'light' ? 'service-light-mode' : 'service-dark-mode';
+
   return (
-    <>
+    <div className={themeClass}>
       <SEOHead 
         title={seo.title}
         description={seo.description}
@@ -69,75 +113,37 @@ const ServicePage = ({ type }) => {
         path={seo.path}
       />
       <StructuredData type="Service" data={serviceSchema} breadcrumbs={breadcrumbs} />
-      <StructuredData type="FAQPage" data={faqSchema} />
+      {faqSchema && <StructuredData type="FAQPage" data={faqSchema} />}
 
-      <section className="section" style={{ paddingTop: '160px', paddingBottom: '80px' }}>
-        <div className="container">
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-5"
-          >
-            <span className="section-tag glow-text">Premium Service</span>
-            <h1 className="section-title" style={{ fontSize: '3rem', marginBottom: '1.5rem' }}>
-              {seo.title.split('|')[0].trim()}
-            </h1>
-            <p className="hero-subtitle mx-auto" style={{ maxWidth: '800px', fontSize: '1.25rem', color: 'var(--muted)' }}>
-              {seo.description}
-            </p>
-          </motion.div>
-        </div>
-      </section>
+      <ServiceHero 
+        title={seo.title.split('|')[0].trim()} 
+        description={seo.description} 
+        heroImage={serviceData.heroImage} 
+        heroImageAlt={serviceData.heroImageAlt} 
+      />
 
-      <section className="section" style={{ background: 'var(--card)', padding: '80px 0' }}>
-        <div className="container">
-          <div className="grid-2-col" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '4rem', alignItems: 'center' }}>
-            <div>
-              <h2 className="section-title" style={{ fontSize: '2.5rem', marginBottom: '1.5rem' }}>Enterprise-Grade <span>Solutions</span></h2>
-              <p style={{ marginBottom: '1.5rem', color: 'var(--muted)', fontSize: '1.1rem', lineHeight: '1.8' }}>
-                At Axiora Technologies, our <strong>{seo.primaryKeyword.toLowerCase()}</strong> is designed to propel your business forward. We integrate modern architectures, scalable frameworks, and robust security protocols to ensure your digital presence is flawless.
-              </p>
-              <p style={{ marginBottom: '2rem', color: 'var(--muted)', fontSize: '1.1rem', lineHeight: '1.8' }}>
-                Whether you need intelligent automation, cloud-native deployments, or custom web and mobile interfaces, our engineering team brings years of expertise to deliver platforms that not only look premium but operate with unmatched reliability.
-              </p>
-              <ul style={{ listStyle: 'none', padding: 0 }}>
-                {['High-Performance Architecture', 'Scalable & Secure Infrastructure', 'Seamless User Experience', 'Agile Delivery Process'].map((feature, i) => (
-                  <li key={i} style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '1rem', fontSize: '1.1rem' }}>
-                    <FaCheckCircle className="text-gold" /> {feature}
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="glass glow" style={{ height: '400px', borderRadius: '24px', display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'rgba(212, 175, 55, 0.05)' }}>
-              {/* Placeholder for service specific abstract image/visual */}
-              <div style={{ textAlign: 'center', color: 'var(--gold-dark)' }}>
-                <span style={{ fontSize: '4rem', display: 'block', marginBottom: '1rem' }}>✨</span>
-                <h3 style={{ fontFamily: 'var(--font-heading)' }}>{seo.primaryKeyword}</h3>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <ServiceFeatures features={serviceData.features} />
+      
+      <ProcessTimeline process={serviceData.process} />
+      
+      <TechStack stack={serviceData.techStack} />
+      
+      <CaseStudySlider studies={serviceData.caseStudies} />
 
-      <section className="section" style={{ padding: '80px 0' }}>
-        <div className="container text-center">
-          <h2 className="section-title" style={{ fontSize: '2.5rem', marginBottom: '2rem' }}>Ready to transform your business?</h2>
+      <FAQSection />
+
+      <section className="section" style={{ background: 'var(--card)' }}>
+        <div className="container" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
+          <h2 className="section-title" style={{ fontSize: '2.5rem', marginBottom: '2rem', textAlign: 'center' }}>Ready to transform your business?</h2>
           <p style={{ maxWidth: '600px', margin: '0 auto 2rem', color: 'var(--muted)', fontSize: '1.1rem' }}>
             Partner with Axiora Technologies and leverage our expertise in {seo.primaryKeyword.toLowerCase()} to build your next big thing.
           </p>
-          <Link to="/#contact" className="btn btn-primary" onClick={() => {
-            setTimeout(() => {
-              const el = document.getElementById('contact');
-              if(el && window.lenis) window.lenis.scrollTo(el);
-              else if(el) el.scrollIntoView();
-            }, 100);
-          }}>
-            Start Your Project <FaArrowRight />
-          </Link>
+          <button className="btn btn-primary" onClick={() => document.getElementById('contact')?.scrollIntoView({behavior: 'smooth'})}>
+            Start Your Project
+          </button>
         </div>
       </section>
-    </>
+    </div>
   );
 };
 

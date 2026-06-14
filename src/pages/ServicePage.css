@@ -1,0 +1,295 @@
+/* Dark Theme Override specifically for Service Pages */
+.service-dark-mode {
+  /* Override global CSS variables to force a dark, premium aesthetic */
+  --bg: #050505;
+  --surface: rgba(10, 10, 10, 0.6);
+  --card: #111111;
+  --text: #FFFFFF;
+  --muted: #A0A0A0;
+  --border-light: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.15);
+  
+  background-color: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+.service-dark-mode .glass {
+  background: rgba(20, 20, 20, 0.4);
+  border: 1px solid var(--border-light);
+}
+
+.service-dark-mode .card {
+  background-color: var(--card);
+}
+
+.service-dark-mode .section-tag {
+  color: var(--gold-light);
+}
+
+.service-dark-mode .section-title span {
+  color: var(--gold);
+  -webkit-text-fill-color: var(--gold);
+}
+
+.service-dark-mode .btn-secondary {
+  color: var(--text);
+  border-color: var(--border-strong);
+}
+
+.service-dark-mode .btn-secondary:hover {
+  background-color: rgba(255,255,255,0.05);
+  border-color: var(--gold);
+}
+
+/* Light Theme Override specifically for Service Pages */
+.service-light-mode {
+  --bg: #FAFAFA;
+  --surface: rgba(255, 255, 255, 0.6);
+  --card: #FFFFFF;
+  --text: #111111;
+  --muted: #666666;
+  --border-light: rgba(0, 0, 0, 0.08);
+  --border-strong: rgba(0, 0, 0, 0.15);
+  
+  background-color: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+.service-light-mode .cinematic-hero-overlay {
+  background: linear-gradient(to bottom, rgba(250,250,250,0.85) 0%, rgba(250,250,250,0.95) 60%, rgba(250,250,250,1) 100%);
+}
+
+.service-light-mode .service-bento-image-wrapper {
+  position: relative;
+  height: 50%;
+  flex: 1;
+  inset: auto;
+}
+
+.service-light-mode .service-bento-content {
+  position: relative;
+  height: auto;
+  flex: none;
+  background: var(--card); /* Solid white */
+  justify-content: flex-start;
+  padding: 1.5rem 2rem;
+}
+
+.service-light-mode .bento-text-title {
+  color: var(--text) !important;
+}
+
+.service-light-mode .bento-text-desc {
+  color: var(--muted) !important;
+}
+
+.service-dark-mode .section-tag {
+  color: var(--gold-light);
+}
+
+.service-dark-mode .section-title span {
+  color: var(--gold);
+  -webkit-text-fill-color: var(--gold);
+}
+
+.service-dark-mode .btn-secondary {
+  color: var(--text);
+  border-color: var(--border-strong);
+}
+
+.service-dark-mode .btn-secondary:hover {
+  background-color: rgba(255,255,255,0.05);
+  border-color: var(--gold);
+}
+
+/* Cinematic Hero */
+.cinematic-hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 120px 0 80px;
+  overflow: hidden;
+}
+
+.cinematic-hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.cinematic-hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.05); /* To prevent edges showing during parallax */
+}
+
+.cinematic-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(5,5,5,0.3) 0%, rgba(5,5,5,0.8) 60%, rgba(5,5,5,1) 100%);
+  z-index: 1;
+}
+
+.cinematic-hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 900px;
+}
+
+/* Bento Grid */
+.service-bento-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1.5rem;
+  grid-auto-flow: dense;
+}
+
+.service-bento-item {
+  border-radius: 24px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.service-bento-item-large {
+  grid-column: span 12;
+}
+
+.service-bento-item-medium {
+  grid-column: span 6;
+}
+
+.service-bento-item-full {
+  grid-column: span 12;
+}
+
+.service-bento-item-tall {
+  grid-column: span 6;
+  grid-row: span 2;
+}
+
+@media (min-width: 1024px) {
+  .service-bento-item-large { grid-column: span 8; }
+  .service-bento-item-medium { grid-column: span 4; }
+  .service-bento-item-full { grid-column: span 12; }
+}
+
+@media (max-width: 768px) {
+  .service-bento-item-large, .service-bento-item-medium, .service-bento-item-tall {
+    grid-column: span 12;
+    grid-row: span 1;
+  }
+}
+
+.service-bento-image-wrapper {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.service-bento-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.service-bento-item:hover .service-bento-image-wrapper img {
+  transform: scale(1.05);
+}
+
+.service-bento-content {
+  position: relative;
+  z-index: 1;
+  padding: 2.5rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background: linear-gradient(to top, rgba(17,17,17,0.95) 0%, rgba(17,17,17,0.4) 50%, transparent 100%);
+}
+
+.service-bento-content-text {
+  position: relative;
+  z-index: 1;
+  padding: 2.5rem;
+}
+
+/* Sticky Timeline */
+.sticky-timeline-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: flex-start;
+}
+
+.sticky-timeline-left {
+  position: sticky;
+  top: 120px;
+}
+
+.sticky-timeline-right {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.timeline-step {
+  padding: 2.5rem;
+  border-radius: 24px;
+  position: relative;
+}
+
+.timeline-step::before {
+  content: '';
+  position: absolute;
+  left: -2rem;
+  top: 3.5rem;
+  bottom: -4rem;
+  width: 2px;
+  background: var(--border-light);
+}
+
+.timeline-step:last-child::before {
+  display: none;
+}
+
+.timeline-number {
+  position: absolute;
+  left: -2rem;
+  top: 2.5rem;
+  width: 40px;
+  height: 40px;
+  transform: translateX(-50%);
+  background: var(--card);
+  border: 2px solid var(--gold);
+  color: var(--gold);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-family: var(--font-heading);
+  z-index: 1;
+}
+
+@media (max-width: 768px) {
+  .sticky-timeline-container {
+    grid-template-columns: 1fr;
+  }
+  .sticky-timeline-left {
+    position: relative;
+    top: 0;
+    margin-bottom: 2rem;
+  }
+  .timeline-step::before { left: 1rem; }
+  .timeline-number { left: 1rem; }
+  .timeline-step { padding-left: 4rem; padding-right: 1.5rem; }
+}

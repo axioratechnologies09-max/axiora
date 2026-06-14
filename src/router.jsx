@@ -10,13 +10,12 @@ const AppRouter = () => {
     <Routes>
       <Route path="/" element={<App />}>
         <Route index element={<HomePage />} />
-        <Route path="ai-development-services" element={<ServicePage type="aiServices" />} />
-        <Route path="custom-software-development" element={<ServicePage type="customSoftware" />} />
-        <Route path="saas-development-services" element={<ServicePage type="saasDevelopment" />} />
-        <Route path="cloud-devops-services" element={<ServicePage type="cloudDevops" />} />
-        <Route path="mobile-app-development" element={<ServicePage type="mobileApp" />} />
-        <Route path="web-development-services" element={<ServicePage type="webDevelopment" />} />
-        <Route path="digital-transformation-services" element={<ServicePage type="digitalTransformation" />} />
+        <Route path="services/frontend-development" element={<ServicePage type="frontend" />} />
+        <Route path="services/custom-web-apps" element={<ServicePage type="customWebApps" />} />
+        <Route path="services/ecommerce-solutions" element={<ServicePage type="ecommerce" />} />
+        <Route path="services/cms-headless" element={<ServicePage type="cmsHeadless" />} />
+        <Route path="services/backend-apis" element={<ServicePage type="backend" />} />
+        <Route path="services/seo-performance" element={<ServicePage type="seoPerformance" />} />
         <Route path="blog" element={<BlogIndex />} />
       </Route>
     </Routes>
